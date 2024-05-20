@@ -20,6 +20,9 @@ let package = Package(
         .target(
             name: "BookRadarApp"
         ),
+        .target(
+            name: "BookRadarEntity"
+        ),
         .testTarget(
             name: "BookRadarAppTests",
             dependencies: [
