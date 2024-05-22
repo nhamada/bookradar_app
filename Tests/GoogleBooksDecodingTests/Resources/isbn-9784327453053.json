@@ -1,0 +1,78 @@
+{
+  "kind": "books#volumes",
+  "totalItems": 1,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "iGiwzgEACAAJ",
+      "etag": "wKxY0ATMRUk",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/iGiwzgEACAAJ",
+      "volumeInfo": {
+        "title": "基本文法から学ぶ英語リーディング教本",
+        "authors": [
+          "薬袋善郎"
+        ],
+        "publishedDate": "2021-11",
+        "description": "あの大ロングセラーがさらに進化しました。中学英語レベルゼロの状態から始めて難しい原書も確実に読めるようになる究極の1冊です。",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "4327453056"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9784327453053"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 0,
+        "printType": "BOOK",
+        "categories": [
+          "Literary Collections"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=iGiwzgEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=iGiwzgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "ja",
+        "previewLink": "http://books.google.co.jp/books?id=iGiwzgEACAAJ&dq=isbn:9784327453053&hl=&cd=1&source=gbs_api",
+        "infoLink": "http://books.google.co.jp/books?id=iGiwzgEACAAJ&dq=isbn:9784327453053&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/%E5%9F%BA%E6%9C%AC%E6%96%87%E6%B3%95%E3%81%8B%E3%82%89%E5%AD%A6%E3%81%B6%E8%8B%B1%E8%AA%9E%E3%83%AA%E3%83%BC%E3%83%87.html?hl=&id=iGiwzgEACAAJ"
+      },
+      "saleInfo": {
+        "country": "JP",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "JP",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=iGiwzgEACAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "あの大ロングセラーがさらに進化しました。中学英語レベルゼロの状態から始めて難しい原書も確実に読めるようになる究極の1冊です。"
+      }
+    }
+  ]
+}

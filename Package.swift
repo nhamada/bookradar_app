@@ -29,5 +29,16 @@ let package = Package(
                 "BookRadarApp",
             ]
         ),
+        .testTarget(
+            name: "GoogleBooksDecodingTests",
+            dependencies: [
+                "BookRadarEntity",
+            ],
+            resources: [
+                .copy("Resources/isbn-9784059200208.json"),
+                .copy("Resources/isbn-9784140887196.json"),
+                .copy("Resources/isbn-9784327453053.json"),
+            ]
+        ),
     ]
 )

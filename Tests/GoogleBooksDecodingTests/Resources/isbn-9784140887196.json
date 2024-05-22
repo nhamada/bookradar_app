@@ -1,0 +1,78 @@
+{
+  "kind": "books#volumes",
+  "totalItems": 1,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "fjyq0AEACAAJ",
+      "etag": "xM4B9Ujvmko",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/fjyq0AEACAAJ",
+      "volumeInfo": {
+        "title": "哲学史入門II 2",
+        "subtitle": "デカルトからカント、ヘーゲルまで",
+        "authors": [
+          "上野修",
+          "戸田剛文",
+          "御子柴善之"
+        ],
+        "publishedDate": "2024-05",
+        "description": "第2巻は、デカルトからドイツ観念論までの近代哲学。時代のうねりのなかで、人間の知性の働きを突き詰めた哲学者たちの思索に迫る!",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "4140887192"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9784140887196"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 0,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=fjyq0AEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=fjyq0AEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "ja",
+        "previewLink": "http://books.google.co.jp/books?id=fjyq0AEACAAJ&dq=isbn:9784140887196&hl=&cd=1&source=gbs_api",
+        "infoLink": "http://books.google.co.jp/books?id=fjyq0AEACAAJ&dq=isbn:9784140887196&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/%E5%93%B2%E5%AD%A6%E5%8F%B2%E5%85%A5%E9%96%80II_2.html?hl=&id=fjyq0AEACAAJ"
+      },
+      "saleInfo": {
+        "country": "JP",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "JP",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=fjyq0AEACAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "第2巻は、デカルトからドイツ観念論までの近代哲学。時代のうねりのなかで、人間の知性の働きを突き詰めた哲学者たちの思索に迫る!"
+      }
+    }
+  ]
+}
