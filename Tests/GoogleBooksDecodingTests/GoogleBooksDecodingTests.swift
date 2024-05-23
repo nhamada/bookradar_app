@@ -19,6 +19,8 @@ internal final class GoogleBooksDecodingTests: XCTestCase {
         let decoder = JSONDecoder()
         do {
             let volumes = try decoder.decode(GBAVolumeList.self, from: data)
+            
+            XCTAssertEqual(volumes.items.count, 1)
         } catch {
             XCTFail("Failed to decode JSON data: \(error.localizedDescription)")
         }
@@ -33,6 +35,8 @@ internal final class GoogleBooksDecodingTests: XCTestCase {
         let decoder = JSONDecoder()
         do {
             let volumes = try decoder.decode(GBAVolumeList.self, from: data)
+            
+            XCTAssertEqual(volumes.items.count, 1)
         } catch {
             XCTFail("Failed to decode JSON data: \(error.localizedDescription)")
         }
@@ -47,6 +51,8 @@ internal final class GoogleBooksDecodingTests: XCTestCase {
         let decoder = JSONDecoder()
         do {
             let volumes = try decoder.decode(GBAVolumeList.self, from: data)
+            
+            XCTAssertEqual(volumes.items.count, 1)
         } catch {
             XCTFail("Failed to decode JSON data: \(error.localizedDescription)")
         }
