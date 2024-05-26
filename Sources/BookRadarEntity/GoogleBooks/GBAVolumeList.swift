@@ -11,8 +11,19 @@ import Foundation
  * Google Books API から取得したボリュームの一覧
  */
 public struct GBAVolumeList: Decodable {
+    /**
+     * リソースのタイプ
+     */
     public let kind: String
+    
+    /**
+     * 見つかったボリュームの数
+     */
     public let totalItems: Int
+    
+    /**
+     * ボリュームのリスト
+     */
     public let items: [GBAVolume]
     
     public enum CodingKeys: CodingKey {

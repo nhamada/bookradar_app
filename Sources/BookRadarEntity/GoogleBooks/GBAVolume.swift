@@ -7,11 +7,33 @@
 
 import Foundation
 
+/**
+ * Google Books API から取得したボリュームの情報
+ */
 public struct GBAVolume: Decodable {
+    /**
+     * リソースタイプ
+     */
     public let kind: String
+    
+    /**
+     * ボリュームの識別子
+     */
     public let id: String
+    
+    /**
+     * ボリュームのリソースの識別子
+     */
     public let etag: String
+    
+    /**
+     * ボリュームの一般情報
+     */
     public let volumeInfo: GBAVolumeInfo
+    
+    /**
+     * ボリュームの販売情報
+     */
     public let saleInfo: GBAVolumeSaleInfo
     
     public enum CodingKeys: CodingKey {

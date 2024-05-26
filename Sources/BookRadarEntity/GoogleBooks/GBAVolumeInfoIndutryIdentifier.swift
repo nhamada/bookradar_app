@@ -7,8 +7,19 @@
 
 import Foundation
 
+/**
+ * Google Books API から取得したボリュームの業界標準識別子の情報
+ */
 public struct GBAVolumeInfoIndutryIdentifier: Decodable {
+    
+    /**
+     * ボリュームの業界標準識別子の種類
+     */
     public let type: String
+    
+    /**
+     * ボリュームの識別子
+     */
     public let identifier: String
     
     public enum CodingKeys: CodingKey {

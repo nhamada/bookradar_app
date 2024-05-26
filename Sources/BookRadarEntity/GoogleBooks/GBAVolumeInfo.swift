@@ -7,16 +7,53 @@
 
 import Foundation
 
+/**
+ * Google Books API から取得したボリュームの一般情報
+ */
 public struct GBAVolumeInfo: Decodable {
+    /**
+     * ボリュームのタイトル
+     */
     public let title: String
+    
+    /**
+     * ボリュームのサブタイトル
+     */
     public let subtitle: String?
+    
+    /**
+     * ボリュームの著者や編集者の名前の一覧
+     */
     public let authors: [String]?
+    
+    /**
+     * ボリュームの出版社
+     */
     public let publisher: String?
+    
+    /**
+     * ボリュームの公開日
+     */
     public let publishedDate: String?
+    
+    /**
+     * ボリュームの概要
+     */
     public let description: String?
     
+    /**
+     * ボリュームの分類の一覧
+     */
     public let categories: [String]?
+    
+    /**
+     * ボリュームの業界標準識別子
+     */
     public let industryIdentifiers: [GBAVolumeInfoIndutryIdentifier]
+    
+    /**
+     * ボリュームの画像リンク
+     */
     public let imageLinks: GBAVolumeInfoImageLink
     
     public enum CodingKeys: CodingKey {

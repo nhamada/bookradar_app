@@ -7,9 +7,23 @@
 
 import Foundation
 
+/**
+ * Google Books API から取得したボリュームの販売情報
+ */
 public struct GBAVolumeSaleInfo: Decodable {
+    
+    /**
+     * Google Books API から取得したボリュームの価格情報
+     */
     public struct Price: Decodable {
+        /**
+         * 金額
+         */
         public let amount: Int
+        
+        /**
+         * 通過コード
+         */
         public let currencyCode: String
         
         public enum CodingKeys: CodingKey {
@@ -24,9 +38,24 @@ public struct GBAVolumeSaleInfo: Decodable {
         }
     }
     
+    /**
+     * 販売情報の国コード
+     */
     public let country: String
+    
+    /**
+     * Google ストアで販売されているか
+     */
     public let saleability: String
+    
+    /**
+     * 推奨小売価格
+     */
     public let listPrice: Price?
+    
+    /**
+     * 実際の販売価格
+     */
     public let retailPrice: Price?
     
     public enum CodingKeys: CodingKey {
