@@ -1,0 +1,100 @@
+{
+  "kind": "books#volumes",
+  "totalItems": 1,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "I-dhEAAAQBAJ",
+      "etag": "MH3VHPV7Y/I",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/I-dhEAAAQBAJ",
+      "volumeInfo": {
+        "title": "中学英語をもう一度ひとつひとつわかりやすく。改訂版",
+        "publisher": "学研プラス",
+        "publishedDate": "2022-03-10",
+        "description": "大人気参考書「ひとつひとつわかりやすく」3冊を再構成した中学英語学び直し本。やさしい解説と豊富な練習問題で，英文法の知識と英語の感覚が同時に身につく。大人向けの追加情報や音声学習コンテンツも充実。全英文収録の音読CD2枚つき。スマホ再生対応",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9784059200208"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "4059200204"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 332,
+        "printType": "BOOK",
+        "categories": [
+          "Study Aids"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "1.2.1.0.preview.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=I-dhEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=I-dhEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "ja",
+        "previewLink": "http://books.google.co.jp/books?id=I-dhEAAAQBAJ&printsec=frontcover&dq=isbn:9784059200208&hl=&cd=1&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=I-dhEAAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=I-dhEAAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "JP",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 2530,
+          "currencyCode": "JPY"
+        },
+        "retailPrice": {
+          "amount": 2277,
+          "currencyCode": "JPY"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=I-dhEAAAQBAJ&rdid=book-I-dhEAAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 2530000000,
+              "currencyCode": "JPY"
+            },
+            "retailPrice": {
+              "amountInMicros": 2277000000,
+              "currencyCode": "JPY"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "JP",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.co.jp/books/download/%E4%B8%AD%E5%AD%A6%E8%8B%B1%E8%AA%9E%E3%82%92%E3%82%82%E3%81%86%E4%B8%80%E5%BA%A6%E3%81%B2%E3%81%A8%E3%81%A4%E3%81%B2-sample-epub.acsm?id=I-dhEAAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.co.jp/books/download/%E4%B8%AD%E5%AD%A6%E8%8B%B1%E8%AA%9E%E3%82%92%E3%82%82%E3%81%86%E4%B8%80%E5%BA%A6%E3%81%B2%E3%81%A8%E3%81%A4%E3%81%B2-sample-pdf.acsm?id=I-dhEAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=I-dhEAAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "大人気参考書「ひとつひとつわかりやすく」3冊を再構成した中学英語学び直し本。やさしい解説と豊富な練習問題で，英文法の知識と英語の感覚が同時に身につく。大人向けの ..."
+      }
+    }
+  ]
+}
