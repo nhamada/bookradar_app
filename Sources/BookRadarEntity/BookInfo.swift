@@ -24,22 +24,22 @@ public struct BookInfo {
     /**
      * サブタイトル
      */
-    public let subtitle: String
+    public let subtitle: String?
     
     /**
      * 著者、編集者
      */
-    public let authors: [String]
+    public let authors: [String]?
     
     /**
      * 出版社
      */
-    public let publisher: String
+    public let publisher: String?
     
     /**
      * 公開日
      */
-    public let publishedDate: Date
+    public let publishedDate: Date?
     
     /**
      * ISBN
@@ -49,10 +49,10 @@ public struct BookInfo {
     /**
      * 説明文
      */
-    public let bookDescription: String
+    public let bookDescription: String?
     
     /**
      * 販売価格
      */
-    public let price: Int
+    public let price: Int?
 }
