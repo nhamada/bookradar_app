@@ -7,7 +7,12 @@
 
 import Foundation
 
+public protocol APIResponse {
+}
+
 public protocol APIRequest {
+    associatedtype Response = APIResponse
+    
     var cachePolicy: URLRequest.CachePolicy { get }
     var timeoutInterval: TimeInterval { get }
     
@@ -24,7 +29,7 @@ public protocol APIRequest {
 }
 
 extension APIRequest {
-    func build() -> URLRequest {
+    public func build() -> URLRequest {
         var urlComponent = URLComponents()
         
         urlComponent.scheme = self.scheme.stringValue
