@@ -14,6 +14,9 @@ let package = Package(
             name: "BookRadarApp",
             targets: [
                 "BookRadarApp",
+                "BookRadarEntity",
+                "APIClient",
+                "GoogleBooksRepository",
             ]
         ),
     ],
@@ -28,6 +31,13 @@ let package = Package(
         ),
         .target(
             name: "APIClient"
+        ),
+        .target(
+            name: "GoogleBooksRepository",
+            dependencies: [
+                "APIClient",
+                "BookRadarEntity",
+            ]
         ),
         .testTarget(
             name: "BookRadarAppTests",
@@ -46,5 +56,13 @@ let package = Package(
                 .copy("Resources/isbn-9784327453053.json"),
             ]
         ),
+        .testTarget(
+            name: "GoogleBooksRepositoryTests",
+            dependencies: [
+                "BookRadarEntity",
+                "APIClient",
+                "GoogleBooksRepository",
+            ]
+        )
     ]
 )
