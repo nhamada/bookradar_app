@@ -20,12 +20,33 @@ final class GoogleBooksRepositoryTests: XCTestCase {
     override func tearDownWithError() throws {
     }
 
-    func testQuery() async throws {
+    func testQuery_Alphabet() async throws {
+        let keyword = "flower"
         let repository = GoogleBooksRepository(apiClient: apiClient)
-        let result = await repository.search(title: "Flower")
+        let result = await repository.search(title: keyword)
         switch result {
         case .success(let books):
-            break
+            let result = books.map {
+                $0.volumeInfo.title.lowercased().contains(keyword)
+            }
+            .contains(false)
+            XCTAssert(result, "all book title must contains: \(keyword)")
+        case .failure(let error):
+            XCTFail(error.localizedDescription)
+        }
+    }
+    
+    func testQuery_Japanese() async throws {
+        let keyword = "プログラミング"
+        let repository = GoogleBooksRepository(apiClient: apiClient)
+        let result = await repository.search(title: keyword)
+        switch result {
+        case .success(let books):
+            let result = books.map {
+                $0.volumeInfo.title.lowercased().contains(keyword)
+            }
+            .contains(false)
+            XCTAssert(result, "all book title must contains: \(keyword)")
         case .failure(let error):
             XCTFail(error.localizedDescription)
         }
