@@ -23,7 +23,7 @@ final class GoogleBooksRepositoryTests: XCTestCase {
     func testQuery_Alphabet() async throws {
         let keyword = "flower"
         let repository = GoogleBooksRepository(apiClient: apiClient)
-        let result = await repository.search(title: keyword)
+        let result = await repository.search(subject: .title(keyword))
         switch result {
         case .success(let books):
             let result = books.map {
@@ -39,11 +39,11 @@ final class GoogleBooksRepositoryTests: XCTestCase {
     func testQuery_Japanese() async throws {
         let keyword = "プログラミング"
         let repository = GoogleBooksRepository(apiClient: apiClient)
-        let result = await repository.search(title: keyword)
+        let result = await repository.search(subject: .title(keyword))
         switch result {
         case .success(let books):
             let result = books.map {
-                $0.volumeInfo.title.lowercased().contains(keyword)
+                $0.volumeInfo.title.contains(keyword)
             }
             .contains(false)
             XCTAssert(result, "all book title must contains: \(keyword)")
