@@ -24,3 +24,23 @@ public enum GoogleBookSearchOrder {
      */
     case relevance
 }
+
+extension GoogleBookSearchOrder {
+    private static var queryName: String {
+        "orderBy"
+    }
+    
+    internal var queryValue: URLQueryItem {
+        .init(name: Self.queryName,
+              value: self.name)
+    }
+    
+    private var name: String {
+        switch self {
+        case .newest:
+            "newest"
+        case .relevance:
+            "relevance"
+        }
+    }
+}

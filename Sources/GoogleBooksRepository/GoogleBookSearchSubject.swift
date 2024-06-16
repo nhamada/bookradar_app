@@ -36,3 +36,24 @@ public enum GoogleBookSearchSubject {
      */
     case keyword(String)
 }
+
+extension GoogleBookSearchSubject {
+    internal static var queryName: String {
+        "q"
+    }
+    
+    internal var queryValue: String {
+        switch self {
+        case .title(let title):
+            "intitle:\(title)"
+        case .isbn(let isbn):
+            "isbn:\(isbn)"
+        case .publisher(let publisher):
+            "inpublisher:\(publisher)"
+        case .author(let author):
+            "inauthor:\(author)"
+        case .keyword(let keyword):
+            keyword
+        }
+    }
+}

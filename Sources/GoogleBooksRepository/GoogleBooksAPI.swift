@@ -12,15 +12,35 @@ import BookRadarEntity
 
 internal struct VolumeSearchRequestParameter: APIRequestQueryParameter {
     internal var items: [URLQueryItem] {
-        [
-            .init(name: "q", value: query)
-        ]
+        var result: [URLQueryItem] = []
+        let searchQuery = subjects.map {
+            $0.queryValue
+        }
+            .joined(separator: "+")
+        result.append(
+            .init(name: GoogleBookSearchSubject.queryName,
+                  value: searchQuery)
+        )
+        if let page {
+            result.append(page.startIndexQueryItem)
+            result.append(page.countQueryItem)
+        }
+        if let order {
+            result.append(order.queryValue)
+        }
+        return result
     }
     
-    private let query: String
+    private let subjects: [GoogleBookSearchSubject]
+    private let page: GoogleBookSearchPage?
+    private let order: GoogleBookSearchOrder?
     
-    internal init(query: String) {
-        self.query = query
+    internal init(subjects: [GoogleBookSearchSubject],
+                  page: GoogleBookSearchPage?,
+                  order: GoogleBookSearchOrder?) {
+        self.subjects = subjects
+        self.page = page
+        self.order = order
     }
 }
 

@@ -41,3 +41,23 @@ public struct GoogleBookSearchPage {
         self.count = count
     }
 }
+
+extension GoogleBookSearchPage {
+    private static var startIndexQueryName: String {
+        "startIndex"
+    }
+    
+    internal var startIndexQueryItem: URLQueryItem {
+        .init(name: Self.startIndexQueryName,
+              value: "\(startIndex)")
+    }
+    
+    private static var countQueryName: String {
+        "maxResults"
+    }
+    
+    internal var countQueryItem: URLQueryItem {
+        .init(name: Self.countQueryName,
+              value: "\(count)")
+    }
+}
