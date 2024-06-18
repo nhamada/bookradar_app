@@ -7,10 +7,12 @@
 
 import Foundation
 
+import BooksRepository
+
 /**
  * 検索結果の並び順
  */
-public enum GoogleBookSearchOrder {
+public enum GoogleBookSearchOrder: BooksSearchOrder {
     /// デフォルトの並び順
     public static let `default`: GoogleBookSearchOrder = .relevance
     

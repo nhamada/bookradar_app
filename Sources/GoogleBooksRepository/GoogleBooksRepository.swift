@@ -8,9 +8,13 @@
 import Foundation
 
 import APIClient
+import BooksRepository
 import BookRadarEntity
 
-public final class GoogleBooksRepository {
+public final class GoogleBooksRepository: BooksRepository {
+    public typealias Subject = GoogleBookSearchSubject
+    public typealias Page = GoogleBookSearchPage
+    public typealias Order = GoogleBookSearchOrder
     
     private let apiClient: APIClient
     
@@ -18,17 +22,9 @@ public final class GoogleBooksRepository {
         self.apiClient = apiClient
     }
     
-    public func search(subject: GoogleBookSearchSubject,
-                       page: GoogleBookSearchPage? = nil,
-                       order: GoogleBookSearchOrder? = nil) async -> Result<[GBAVolume], APIClientError> {
-        await search(subjects: [subject],
-                     page: page,
-                     order: order)
-    }
-    
     public func search(subjects: [GoogleBookSearchSubject],
-                       page: GoogleBookSearchPage? = nil,
-                       order: GoogleBookSearchOrder? = nil) async -> Result<[GBAVolume], APIClientError> {
+                       page: GoogleBookSearchPage,
+                       order: GoogleBookSearchOrder) async -> SearchResult {
         let requestParameter = VolumeSearchRequestParameter(subjects: subjects,
                                                             page: page,
                                                             order: order)
@@ -38,7 +34,14 @@ public final class GoogleBooksRepository {
         case .success(let success):
             return .success(success.items)
         case .failure(let failure):
-            return .failure(failure)
+            switch failure {
+            case .noData:
+                return .failure(.invalidResponse)
+            case .invalidResponse:
+                return .failure(.invalidResponse)
+            case .decoding:
+                return .failure(.invalidResponse)
+            }
         }
     }
 }

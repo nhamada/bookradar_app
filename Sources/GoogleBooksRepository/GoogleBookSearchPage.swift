@@ -7,10 +7,12 @@
 
 import Foundation
 
+import BooksRepository
+
 /**
  * 検索範囲
  */
-public struct GoogleBookSearchPage {
+public struct GoogleBookSearchPage: BooksSearchPage {
     /// デフォルトの設定
     public static var `default`: Self {
         .init(startIndex: 0, count: 30)
