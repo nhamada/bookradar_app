@@ -33,9 +33,16 @@ let package = Package(
             name: "APIClient"
         ),
         .target(
+            name: "BooksRepository",
+            dependencies: [
+                "BookRadarEntity",
+            ]
+        ),
+        .target(
             name: "GoogleBooksRepository",
             dependencies: [
                 "APIClient",
+                "BooksRepository",
                 "BookRadarEntity",
             ]
         ),
