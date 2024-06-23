@@ -8,11 +8,23 @@
 import XCTest
 
 @testable import APIClient
+@testable import BooksRepository
 @testable import GoogleBooksRepository
 
 final class GoogleBooksRepositoryTests: XCTestCase {
     
+    private typealias Repository = BooksRepository<GoogleBookSearchSubject,
+                                                   GoogleBookSearchPage,
+                                                   GoogleBookSearchOrder>
+    
     private let apiClient = APIClient(session: .init(configuration: .ephemeral))
+    private var repository: (any Repository)!
+    
+    override func setUp() async throws {
+        try await super.setUp()
+        
+        repository = GoogleBooksRepository(apiClient: apiClient)
+    }
 
     override func setUpWithError() throws {
     }
@@ -22,7 +34,6 @@ final class GoogleBooksRepositoryTests: XCTestCase {
 
     func testQuery_Alphabet() async throws {
         let keyword = "flower"
-        let repository = GoogleBooksRepository(apiClient: apiClient)
         let result = await repository.search(subject: .title(keyword))
         switch result {
         case .success(let books):
@@ -38,7 +49,6 @@ final class GoogleBooksRepositoryTests: XCTestCase {
     
     func testQuery_Japanese() async throws {
         let keyword = "プログラミング"
-        let repository = GoogleBooksRepository(apiClient: apiClient)
         let result = await repository.search(subject: .title(keyword))
         switch result {
         case .success(let books):
