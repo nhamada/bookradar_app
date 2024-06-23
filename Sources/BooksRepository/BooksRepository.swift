@@ -27,7 +27,7 @@ public enum BooksRepositoryError: Error {
     case invalidResponse
 }
 
-public protocol BooksRepository {
+public protocol BooksRepository<Subject, Page, Order> {
     associatedtype Subject: BooksSearchSubject
     associatedtype Page: BooksSearchPage
     associatedtype Order: BooksSearchOrder
@@ -103,5 +103,4 @@ public extension BooksRepository {
                      page: .default,
                      order: order)
     }
-    
 }
