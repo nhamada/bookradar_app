@@ -49,12 +49,12 @@ public struct GBAVolumeInfo: Decodable {
     /**
      * ボリュームの業界標準識別子
      */
-    public let industryIdentifiers: [GBAVolumeInfoIndutryIdentifier]
+    public let industryIdentifiers: [GBAVolumeInfoIndutryIdentifier]?
     
     /**
      * ボリュームの画像リンク
      */
-    public let imageLinks: GBAVolumeInfoImageLink
+    public let imageLinks: GBAVolumeInfoImageLink?
     
     public enum CodingKeys: CodingKey {
         case title
@@ -77,7 +77,7 @@ public struct GBAVolumeInfo: Decodable {
         self.publishedDate = try? container.decode(String.self, forKey: .publishedDate)
         self.description = try? container.decode(String.self, forKey: .description)
         self.categories = try? container.decode([String].self, forKey: .categories)
-        self.industryIdentifiers = try container.decode([GBAVolumeInfoIndutryIdentifier].self, forKey: .industryIdentifiers)
-        self.imageLinks = try container.decode(GBAVolumeInfoImageLink.self, forKey: .imageLinks)
+        self.industryIdentifiers = try? container.decode([GBAVolumeInfoIndutryIdentifier].self, forKey: .industryIdentifiers)
+        self.imageLinks = try? container.decode(GBAVolumeInfoImageLink.self, forKey: .imageLinks)
     }
 }
