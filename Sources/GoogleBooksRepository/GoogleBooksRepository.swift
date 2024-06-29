@@ -8,40 +8,66 @@
 import Foundation
 
 import APIClient
-import BooksRepository
 import BookRadarEntity
 
-public final class GoogleBooksRepository: BooksRepository {
-    public typealias Subject = GoogleBookSearchSubject
-    public typealias Page = GoogleBookSearchPage
-    public typealias Order = GoogleBookSearchOrder
+public enum GoogleBooksRepositoryError: Error {
+    case uknown
+    case invalidRequest
+    case invalidResponse
+}
+
+public protocol GoogleBooksRepository {
+    func search(subjects: [GoogleBookSearchSubject],
+                page: GoogleBookSearchPage,
+                order: GoogleBookSearchOrder) async throws -> [GBAVolume]
+}
+
+extension GoogleBooksRepository {
+    public func search(subject: GoogleBookSearchSubject) async throws -> [GBAVolume] {
+        try await search(subject: subject,
+                         page: .default,
+                         order: .default)
+    }
     
-    private let apiClient: APIClient
+    public func search(subject: GoogleBookSearchSubject,
+                       page: GoogleBookSearchPage) async throws -> [GBAVolume] {
+        try await search(subject: subject,
+                         page: page,
+                         order: .default)
+    }
     
-    public init(apiClient: APIClient) {
-        self.apiClient = apiClient
+    public func search(subject: GoogleBookSearchSubject,
+                       order: GoogleBookSearchOrder) async throws -> [GBAVolume] {
+        try await search(subject: subject,
+                         page: .default,
+                         order: order)
+    }
+    
+    public func search(subject: GoogleBookSearchSubject,
+                       page: GoogleBookSearchPage,
+                       order: GoogleBookSearchOrder) async throws -> [GBAVolume] {
+        try await search(subjects: [subject],
+                         page: page,
+                         order: order)
+    }
+    
+    public func search(subjects: [GoogleBookSearchSubject]) async throws -> [GBAVolume] {
+        try await search(subjects: subjects,
+                         page: .default,
+                         order: .default)
     }
     
     public func search(subjects: [GoogleBookSearchSubject],
-                       page: GoogleBookSearchPage,
-                       order: GoogleBookSearchOrder) async -> SearchResult {
-        let requestParameter = VolumeSearchRequestParameter(subjects: subjects,
-                                                            page: page,
-                                                            order: order)
-        let request = VolumeSearchRequest(queryParameter: requestParameter)
-        let result = await apiClient.send(request: request)
-        switch result {
-        case .success(let success):
-            return .success(success.items)
-        case .failure(let failure):
-            switch failure {
-            case .noData:
-                return .failure(.invalidResponse)
-            case .invalidResponse:
-                return .failure(.invalidResponse)
-            case .decoding:
-                return .failure(.invalidResponse)
-            }
-        }
+                       page: GoogleBookSearchPage) async throws -> [GBAVolume] {
+        try await search(subjects: subjects,
+                         page: page,
+                         order: .default)
+    }
+    
+    public func search(subjects: [GoogleBookSearchSubject],
+                       order: GoogleBookSearchOrder) async throws -> [GBAVolume] {
+        try await search(subjects: subjects,
+                         page: .default,
+                         order: order)
     }
 }

@@ -7,12 +7,10 @@
 
 import Foundation
 
-import BooksRepository
-
 /**
  * Google Books APIの検索対象
  */
-public enum GoogleBookSearchSubject: BooksSearchSubject {
+public enum GoogleBookSearchSubject {
     /**
      * タイトル検索
      */
