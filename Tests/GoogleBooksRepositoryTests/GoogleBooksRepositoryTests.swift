@@ -8,22 +8,17 @@
 import XCTest
 
 @testable import APIClient
-@testable import BooksRepository
 @testable import GoogleBooksRepository
 
 final class GoogleBooksRepositoryTests: XCTestCase {
     
-    private typealias Repository = BooksRepository<GoogleBookSearchSubject,
-                                                   GoogleBookSearchPage,
-                                                   GoogleBookSearchOrder>
-    
     private let apiClient = APIClient(session: .init(configuration: .ephemeral))
-    private var repository: (any Repository)!
+    private var repository: GoogleBooksRepository!
     
     override func setUp() async throws {
         try await super.setUp()
         
-        repository = GoogleBooksRepository(apiClient: apiClient)
+        repository = GoogleBooksAPIRepository(apiClient: apiClient)
     }
 
     override func setUpWithError() throws {
@@ -34,30 +29,28 @@ final class GoogleBooksRepositoryTests: XCTestCase {
 
     func testQuery_Alphabet() async throws {
         let keyword = "flower"
-        let result = await repository.search(subject: .title(keyword))
-        switch result {
-        case .success(let books):
-            let result = books.map {
+        do {
+            let result = try await repository.search(subject: .title(keyword))
+            let checkCondition = result.map {
                 $0.volumeInfo.title.lowercased().contains(keyword)
             }
-            .contains(false)
-            XCTAssert(result, "all book title must contains: \(keyword)")
-        case .failure(let error):
+                .contains(false)
+            XCTAssert(checkCondition, "all book title must contains: \(keyword)")
+        } catch {
             XCTFail(error.localizedDescription)
         }
     }
     
     func testQuery_Japanese() async throws {
         let keyword = "プログラミング"
-        let result = await repository.search(subject: .title(keyword))
-        switch result {
-        case .success(let books):
-            let result = books.map {
-                $0.volumeInfo.title.contains(keyword)
+        do {
+            let result = try await repository.search(subject: .title(keyword))
+            let checkCondition = result.map {
+                $0.volumeInfo.title.lowercased().contains(keyword)
             }
-            .contains(false)
-            XCTAssert(result, "all book title must contains: \(keyword)")
-        case .failure(let error):
+                .contains(false)
+            XCTAssert(checkCondition, "all book title must contains: \(keyword)")
+        } catch {
             XCTFail(error.localizedDescription)
         }
     }
