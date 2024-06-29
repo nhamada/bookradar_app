@@ -5,12 +5,18 @@ import PackageDescription
 
 let package = Package(
     name: "bookradar_app",
+    platforms: [
+        .iOS(.v17)
+    ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "BookRadarApp",
             targets: [
                 "BookRadarApp",
+                "BookRadarEntity",
+                "APIClient",
+                "GoogleBooksRepository",
             ]
         ),
     ],
@@ -22,6 +28,16 @@ let package = Package(
         ),
         .target(
             name: "BookRadarEntity"
+        ),
+        .target(
+            name: "APIClient"
+        ),
+        .target(
+            name: "GoogleBooksRepository",
+            dependencies: [
+                "APIClient",
+                "BookRadarEntity",
+            ]
         ),
         .testTarget(
             name: "BookRadarAppTests",
@@ -40,5 +56,13 @@ let package = Package(
                 .copy("Resources/isbn-9784327453053.json"),
             ]
         ),
+        .testTarget(
+            name: "GoogleBooksRepositoryTests",
+            dependencies: [
+                "BookRadarEntity",
+                "APIClient",
+                "GoogleBooksRepository",
+            ]
+        )
     ]
 )
